@@ -39,8 +39,7 @@
     NSAssert(NO, @"禁止使用init函数进行控件初始化，请使用initWithFrame:textScrollModel:函数进行控件初始化！");
     return nil;
 }
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame{
     NSAssert(NO, @"禁止使用initWithFrame:函数进行控件初始化，请使用initWithFrame:textScrollModel:函数进行控件初始化！");
     return nil;
 }
@@ -68,11 +67,10 @@
 #pragma mark - 开始滚动
 -(void)startScrollWithText:(NSString * )text textColor:(UIColor *)color font:(UIFont *)font{
     //清空self上的子视图
-    for (int i = 0; i < self.subviews.count; i++) {
-        UIView * view = [self.subviews objectAtIndex:i];
-        [view removeFromSuperview];
-        view = nil;
-    }
+    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj removeFromSuperview];
+        obj = nil;
+    }];
     
     //赋新值
     _text = text;
@@ -97,20 +95,12 @@
         
         case LMJTextScrollContinuous:
         {
-            if (_textWidth > self.frame.size.width) {
-                if (_currentMoveDirection == LMJTextScrollMoveLeft) {
-                    [self creatLabel1AndLabel2WithFrame1:CGRectMake(0, 0, _textWidth, self.frame.size.height) frame2:CGRectMake(_textWidth, 0, _textWidth, self.frame.size.height)];
-                }else{
-                    [self creatLabel1AndLabel2WithFrame1:CGRectMake(self.frame.size.width -_textWidth, 0, _textWidth, self.frame.size.height) frame2:CGRectMake(self.frame.size.width -_textWidth -_textWidth, 0, _textWidth, self.frame.size.height)];
-                }
-            }else{//如果字符串长度小于控件宽度，只创建一个字符串label
-                if (_currentMoveDirection == LMJTextScrollMoveLeft) {
-                    [self creatLabel1WithFrame:CGRectMake(0, 0, _textWidth, self.frame.size.height)];
-                }else{
-                    [self creatLabel1WithFrame:CGRectMake(self.frame.size.width -_textWidth, 0, _textWidth, self.frame.size.height)];
-                }
-                
+            if (_currentMoveDirection == LMJTextScrollMoveLeft) {
+                [self creatLabel1WithFrame1:CGRectMake(0, 0, _textWidth, self.frame.size.height) andLabel2WithFrame2:CGRectMake(_textWidth, 0, _textWidth, self.frame.size.height)];
+            }else{
+                [self creatLabel1WithFrame1:CGRectMake(self.frame.size.width -_textWidth, 0, _textWidth, self.frame.size.height) andLabel2WithFrame2:CGRectMake(self.frame.size.width -_textWidth -_textWidth, 0, _textWidth, self.frame.size.height)];
             }
+ 
         }break;
             
         case LMJTextScrollIntermittent:
@@ -148,55 +138,43 @@
 #pragma mark - 创建label
 -(void)creatLabel1WithFrame:(CGRect)frame{
     _contentLabel1 = [[UILabel alloc] initWithFrame:frame];
-    _contentLabel1.text = _text;
-    _contentLabel1.font = _font;
-    _contentLabel1.textColor = _textColor;
+    _contentLabel1.text            = _text;
+    _contentLabel1.font            = _font;
+    _contentLabel1.textColor       = _textColor;
     _contentLabel1.backgroundColor = [UIColor clearColor];
     [self addSubview:_contentLabel1];
 }
--(void)creatLabel1AndLabel2WithFrame1:(CGRect)frame1 frame2:(CGRect)frame2{
-    _contentLabel1 = [[UILabel alloc] initWithFrame:frame1];
-    _contentLabel1.text = _text;
-    _contentLabel1.font = _font;
-    _contentLabel1.textColor = _textColor;
-    _contentLabel1.backgroundColor = [UIColor clearColor];
-    [self addSubview:_contentLabel1];
+-(void)creatLabel1WithFrame1:(CGRect)frame1 andLabel2WithFrame2:(CGRect)frame2{
+    
+    [self creatLabel1WithFrame:frame1];
     
     _contentLabel2 = [[UILabel alloc] initWithFrame:frame2];
-    _contentLabel2.text = _text;
-    _contentLabel2.font = _font;
-    _contentLabel2.textColor = _textColor;
+    _contentLabel2.text            = _text;
+    _contentLabel2.font            = _font;
+    _contentLabel2.textColor       = _textColor;
     _contentLabel2.backgroundColor = [UIColor clearColor];
     [self addSubview:_contentLabel2];
 }
 
 #pragma mark - 设置速度
 -(void)setMoveSpeed:(CGFloat)speed{
+    CGFloat timeInterval = speed;
     if (speed > 0.1) {
-        [_timer invalidate];
-        _timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(contentMove) userInfo:nil repeats:YES];
-        return;
+        timeInterval = 0.1;
     }
-    if (speed < 0.001) {
-        [_timer invalidate];
-        _timer = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(contentMove) userInfo:nil repeats:YES];
-        return;
+    if (speed < 0.01) {
+        timeInterval = 0.01;
     }
     
     [_timer invalidate];
-    _timer = [NSTimer scheduledTimerWithTimeInterval:speed target:self selector:@selector(contentMove) userInfo:nil repeats:YES];
+    _timer = nil;
+    _timer = [NSTimer scheduledTimerWithTimeInterval:timeInterval target:self selector:@selector(contentMove) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
 }
 
 #pragma mark - 内容移动
 - (void)contentMove {
-
-    if (_textWidth < self.frame.size.width) {//如果字符串长度小于控件宽度，不滚动
-        
-        if (_currentScrollModel == LMJTextScrollWandering) {//往返模式除外
-            [self moveWandering];
-        }
-        return;
-    }
+    
     switch (_currentScrollModel) {
             
         case LMJTextScrollContinuous:
@@ -237,10 +215,10 @@
     }else{
         _contentLabel1.frame = CGRectMake(_contentLabel1.frame.origin.x +1, 0, _textWidth, self.frame.size.height);
         _contentLabel2.frame = CGRectMake(_contentLabel2.frame.origin.x +1, 0, _textWidth, self.frame.size.height);
-        if (_contentLabel1.frame.origin.x > _textWidth) {
+        if (_contentLabel1.frame.origin.x > self.frame.size.width) {
             _contentLabel1.frame = CGRectMake(_contentLabel2.frame.origin.x - _textWidth, 0, _textWidth, self.frame.size.height);
         }
-        if (_contentLabel2.frame.origin.x > _textWidth) {
+        if (_contentLabel2.frame.origin.x > self.frame.size.width) {
             _contentLabel2.frame = CGRectMake(_contentLabel1.frame.origin.x - _textWidth, 0, _textWidth, self.frame.size.height);
         }
     }
@@ -275,13 +253,29 @@
 }
 //往返滚动
 -(void)moveWandering{
-    _contentLabel1.frame = CGRectMake(_contentLabel1.frame.origin.x + _wanderingOffset, 0, _textWidth, self.frame.size.height);
-    if (_contentLabel1.frame.origin.x < -(_textWidth -self.frame.size.width)) {
-        _wanderingOffset = 1;
+    CGFloat selfWidth = self.frame.size.width;
+    if (_textWidth > selfWidth) {
+        _contentLabel1.frame = CGRectMake(_contentLabel1.frame.origin.x + _wanderingOffset, 0, _textWidth, self.frame.size.height);
+        if (_contentLabel1.frame.origin.x < -(_textWidth -selfWidth)) {
+            _wanderingOffset = 1;
+        }
+        if (_contentLabel1.frame.origin.x > 0) {
+            _wanderingOffset = -1;
+        }
+    }else if (_textWidth < selfWidth){
+        _contentLabel1.frame = CGRectMake(_contentLabel1.frame.origin.x + _wanderingOffset, 0, _textWidth, self.frame.size.height);
+        if (_contentLabel1.frame.origin.x < 0) {
+            _wanderingOffset = 1;
+        }
+        if (_contentLabel1.frame.origin.x > selfWidth - _textWidth) {
+            _wanderingOffset = -1;
+        }
     }
-    if (_contentLabel1.frame.origin.x > 2) {
-        _wanderingOffset = -1;
-    }
+}
+
+- (void)dealloc{
+    [_timer invalidate];
+    _timer = nil;
 }
 
 @end

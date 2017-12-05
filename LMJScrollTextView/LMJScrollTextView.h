@@ -61,7 +61,7 @@ typedef enum {
 /**
  *  设置字符串移动的速度
  *
- *  @param speed         移动速度 取值越小速度越快 取值范围：0.001~0.1
+ *  @param speed         移动速度 取值越小速度越快 取值范围：0.01~0.1
  */
 -(void)setMoveSpeed:(CGFloat)speed;
 
