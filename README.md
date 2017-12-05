@@ -1,4 +1,5 @@
 # LMJScrollTextView
+             
 1.2.0
 1、修复字符串过短时产生的异常
 2、修复一些bug
