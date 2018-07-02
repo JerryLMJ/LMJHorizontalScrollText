@@ -103,6 +103,16 @@
  
         }break;
             
+        case LMJTextScrollContinuousHalf:
+        {
+            if (_currentMoveDirection == LMJTextScrollMoveLeft) {
+                [self creatLabel1WithFrame1:CGRectMake(0, 0, _textWidth, self.frame.size.height) andLabel2WithFrame2:CGRectMake(self.frame.size.width/2 + _textWidth, 0, _textWidth, self.frame.size.height)];
+            }else{
+                [self creatLabel1WithFrame1:CGRectMake(self.frame.size.width -_textWidth, 0, _textWidth, self.frame.size.height) andLabel2WithFrame2:CGRectMake(self.frame.size.width -_textWidth -_textWidth - self.frame.size.width/2, 0, _textWidth, self.frame.size.height)];
+            }
+            
+        }break;
+            
         case LMJTextScrollIntermittent:
         {
             if (_currentMoveDirection == LMJTextScrollMoveLeft) {
@@ -182,6 +192,11 @@
             [self moveContinuous];
         }
             break;
+        case LMJTextScrollContinuousHalf:
+        {
+            [self moveContinuousHalf];
+        }
+            break;
         case LMJTextScrollIntermittent:
         {
             [self moveIntermittent];
@@ -220,6 +235,29 @@
         }
         if (_contentLabel2.frame.origin.x > self.frame.size.width) {
             _contentLabel2.frame = CGRectMake(_contentLabel1.frame.origin.x - _textWidth, 0, _textWidth, self.frame.size.height);
+        }
+    }
+}
+
+//连续滚动中间过半就出现
+-(void)moveContinuousHalf{
+    if (_currentMoveDirection == LMJTextScrollMoveLeft) {
+        _contentLabel1.frame = CGRectMake(_contentLabel1.frame.origin.x -1, 0, _textWidth, self.frame.size.height);
+        _contentLabel2.frame = CGRectMake(_contentLabel2.frame.origin.x -1, 0, _textWidth, self.frame.size.height);
+        if (_contentLabel1.frame.origin.x < -_textWidth) {
+            _contentLabel1.frame = CGRectMake(_contentLabel2.frame.origin.x + _textWidth + self.frame.size.width/2, 0, _textWidth, self.frame.size.height);
+        }
+        if (_contentLabel2.frame.origin.x < -_textWidth) {
+            _contentLabel2.frame = CGRectMake(_contentLabel1.frame.origin.x + _textWidth + self.frame.size.width/2, 0, _textWidth, self.frame.size.height);
+        }
+    }else{
+        _contentLabel1.frame = CGRectMake(_contentLabel1.frame.origin.x +1, 0, _textWidth, self.frame.size.height);
+        _contentLabel2.frame = CGRectMake(_contentLabel2.frame.origin.x +1, 0, _textWidth, self.frame.size.height);
+        if (_contentLabel1.frame.origin.x > self.frame.size.width) {
+            _contentLabel1.frame = CGRectMake(_contentLabel2.frame.origin.x - _textWidth - self.frame.size.width/2, 0, _textWidth, self.frame.size.height);
+        }
+        if (_contentLabel2.frame.origin.x > self.frame.size.width) {
+            _contentLabel2.frame = CGRectMake(_contentLabel1.frame.origin.x - _textWidth- self.frame.size.width/2, 0, _textWidth, self.frame.size.height);
         }
     }
 }

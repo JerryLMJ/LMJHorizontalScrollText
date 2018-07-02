@@ -16,7 +16,9 @@
     LMJScrollTextView * _scrollTextView1_2;
     
     LMJScrollTextView * _scrollTextView2;
+    LMJScrollTextView * _scrollTextView21;
     LMJScrollTextView * _scrollTextView3;
+    LMJScrollTextView * _scrollTextView31;
     LMJScrollTextView * _scrollTextView4;
     LMJScrollTextView * _scrollTextView5;
     LMJScrollTextView * _scrollTextView6;
@@ -66,6 +68,7 @@
     [self.view addSubview:_scrollTextView2];
     
     [_scrollTextView2 startScrollWithText:@"<<<向左连续滚动字符串|向左连续滚动字符串|向左连续滚动字符串" textColor:[UIColor blackColor] font:[UIFont systemFontOfSize:16]];
+    
     
     
     //向右，连续滚动
@@ -129,7 +132,24 @@
     
     
     
+    //向左，连续滚动,超过一半，就开始新的
+    [self addLabelWithFrame:CGRectMake(10, 475, 400, 20) text:@"向左，连续滚动（left，continuousHalf）"];
     
+    _scrollTextView21 = [[LMJScrollTextView alloc] initWithFrame:CGRectMake(10, 495, 300, 30) textScrollModel:LMJTextScrollContinuousHalf direction:LMJTextScrollMoveLeft];
+    _scrollTextView21.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_scrollTextView21];
+    
+    [_scrollTextView21 startScrollWithText:@"<<<向左连续滚动字符串|向左连续滚动字符串|向左连续滚动字符串" textColor:[UIColor blackColor] font:[UIFont systemFontOfSize:16]];
+    
+    
+    //向右，连续滚动 滚到一半重新出现
+    [self addLabelWithFrame:CGRectMake(10, 525, 400, 20) text:@"向右，连续滚动（right，continuousHalf）"];
+    
+    _scrollTextView31 = [[LMJScrollTextView alloc] initWithFrame:CGRectMake(10, 545, 300, 30) textScrollModel:LMJTextScrollContinuousHalf direction:LMJTextScrollMoveRight];
+    _scrollTextView31.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_scrollTextView31];
+    
+    [_scrollTextView31 startScrollWithText:@"向右连续滚动字符串>>>" textColor:[UIColor blackColor] font:[UIFont systemFontOfSize:16]];
     
     
     
@@ -162,6 +182,8 @@
         [_scrollTextView5 setMoveSpeed:speed];
         [_scrollTextView6 setMoveSpeed:speed];
         [_scrollTextView7 setMoveSpeed:speed];
+        [_scrollTextView21 setMoveSpeed:speed];
+        [_scrollTextView31 setMoveSpeed:speed];
     }
 }
 
