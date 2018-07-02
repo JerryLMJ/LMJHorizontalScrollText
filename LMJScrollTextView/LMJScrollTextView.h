@@ -19,6 +19,7 @@
  */
 typedef enum {
     LMJTextScrollContinuous,     // 从控件内开始连续滚动
+    LMJTextScrollContinuousHalf, // 自定义 连续滚动过半、就开始下一个
     LMJTextScrollIntermittent,   // 从控件内开始间断滚动
     LMJTextScrollFromOutside,    // 从控件外开始滚动
     LMJTextScrollWandering       // 在控件中往返滚动（不受设置方向影响）
