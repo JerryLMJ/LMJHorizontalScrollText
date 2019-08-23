@@ -29,28 +29,22 @@
     * Drag All files in the `LMJHorizontalScrollText` folder to project
     * Import the main file：`#import "LMJHorizontalScrollText.h"`
 
+
 ## Properties and methods
 | Attribute | Description |
 | --- | ---
 | text | scroll string content
-| --- | ---
 | textFont | font
-| --- | ---
 | textColor | font color
-| --- | ---
 | speed | rolling speed, value range 0.01~0.1, default 0.03, the smaller the value, the faster the speed
-| --- | ---
-<br> LMJTextScrollMoveLeft: left <br> LMJTextScrollMoveLeft: left <br>LMJTextScrollMoveRight: right
-| --- | ---
-| moveMode | scroll way, default LMJTextScrollWandering, enumeration values are as follows: < br > LMJTextScrollContinuous: starting control in continuous rolling < br > LMJTextScrollIntermittent: starting control in continuous rolling < br > LMJTextScrollFromOutside: starting from the outside control rolling < br > LMJTextScrollWandering: Scroll back and forth in the control (not affected by the moveDirection property)
-| --- | ---
+| moveDirection | Scroll mode, default LMJTextScrollWandering, enumeration values are as follows: <br>- LMJTextScrollMoveLeft: left<br>- LMJTextScrollMoveRight: right
+| moveMode | scroll way, default LMJTextScrollWandering, enumeration values are as follows: <br>- LMJTextScrollContinuous: starting control in continuous rolling <br>- LMJTextScrollIntermittent: starting control in continuous rolling <br>- LMJTextScrollFromOutside: starting from the outside control rolling <br>- LMJTextScrollWandering: Scroll back and forth in the control (not affected by the moveDirection property)
 
 | Method | Description |
 | --- | ---
 | move | to scroll
-| --- | ---
 | stop | stop scrolling
-| --- | ---
+
 
 ## Update log
 - **2019.8.23 (2.0.0) :**           
