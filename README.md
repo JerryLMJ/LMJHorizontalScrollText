@@ -35,7 +35,7 @@
 | textFont | 字体 
 | textColor | 字体颜色 
 | speed | 滚动速度，取值范围0.01~0.1，默认0.03，值越小速度越快 
-| moveDirection | 滚动方向，默认LMJTextScrollMoveLeft（向左），枚举值如下：<br>- LMJTextScrollMoveLeft：向左滚动<br>- LMJTextScrollMoveRight：向右滚动 
+| moveDirection | 滚动方向，默认LMJTextScrollMoveLeft，枚举值如下：<br>- LMJTextScrollMoveLeft：向左滚动<br>- LMJTextScrollMoveRight：向右滚动 
 | moveMode | 滚动方式，默认LMJTextScrollWandering，枚举值如下：<br>- LMJTextScrollContinuous: 从控件内开始连续滚动<br>- LMJTextScrollIntermittent：从控件内开始间断滚动<br>- LMJTextScrollFromOutside：从控件外开始滚动<br>- LMJTextScrollWandering： 在控件中往返滚动（不受moveDirection属性影响）
 
 | 方法 | 描述 |

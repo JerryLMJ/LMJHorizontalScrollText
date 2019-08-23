@@ -53,14 +53,14 @@ To better match the control functions, the project name will be changed from LMJ
 This update reconstructs the way the control is used, removing multiple initialization methods and adding more flexible control properties to improve control performance                     
 Newly added cocoapods installation which is always required by everyone, and improved the file structure of demo module and new Chinese and English documents           
 - **2017.12.5 (1.2.0) :**                
-1. Fix exceptions caused by excessively short strings            
-2. Fix some bugs                 
-3. Improve the test Demo             
+Fix exceptions caused by excessively short strings            
+Fix some bugs                 
+Improve the test Demo             
 - **2015.11.23 (1.0.0) :**             
 This demo mainly realizes string scrolling effect              
-1. Scroll direction can be set (left, right, round trip)              
-2. you can set the starting position of scrolling (starting from outside the control, starting from the edge of the control)             
-3. You can set the rolling speed                               
+Scroll direction can be set (left, right, round trip)              
+you can set the starting position of scrolling (starting from outside the control, starting from the edge of the control)             
+You can set the rolling speed                               
 
 
       
