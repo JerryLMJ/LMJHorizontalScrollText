@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Demo-StoryboardVC.h"
 #import "LMJHorizontalScrollText.h"
 
 @interface ViewController ()
@@ -42,8 +43,10 @@
     [self buildHorizontalScrollTexts_Continuous];
     [self buildHorizontalScrollTexts_Intermittent];
     [self buildHorizontalScrollTexts_FromOutside];
-    
+
     [self buildSpeedControl];
+    
+    [self buildGotoStoryboardPageBtn];
 }
 
 - (void)buildHorizontalScrollTexts_Wandering {
@@ -174,7 +177,18 @@
     _speedValueLabel.font = [UIFont boldSystemFontOfSize:14];
     [self.view addSubview:_speedValueLabel];
 }
+- (void)buildGotoStoryboardPageBtn{
+    // go to next page button 2
+    UIButton * demoAddToXibPageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [demoAddToXibPageBtn setTitle:@"DemoAddToXibPage >>>" forState:UIControlStateNormal];
+    [demoAddToXibPageBtn setBackgroundColor:[UIColor grayColor]];
+    [demoAddToXibPageBtn setFrame:CGRectMake(20, 550, 250, 30)];
+    [demoAddToXibPageBtn addTarget:self action:@selector(clickDemoAddToXibPageBtn) forControlEvents:UIControlEventTouchUpInside];
+    demoAddToXibPageBtn.layer.cornerRadius = 3;
+    [self.view addSubview:demoAddToXibPageBtn];
+}
 
+#pragma mark - action
 - (void)sliderValueChanged:(UISlider *)slider {
     CGFloat value = slider.value;
     _speedValueLabel.text = [NSString stringWithFormat:@"%0.2f", value];
@@ -187,6 +201,11 @@
     _scrollText3_2.speed = value;
     _scrollText4_1.speed = value;
     _scrollText4_2.speed = value;
+}
+
+- (void)clickDemoAddToXibPageBtn {
+    Demo_StoryboardVC * vc = [[UIStoryboard storyboardWithName:@"Demo" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"Demo_StoryboardVC"];
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

@@ -46,10 +46,12 @@
     [self setInitialSettings];
 }
 
-- (void)setInitialSettings {
+- (void)layoutSubviews{
     _selfWidth = self.frame.size.width;
     _selfHeight = self.frame.size.height;
-    
+}
+
+- (void)setInitialSettings {
     _contentLabel1 = nil;
     _contentLabel2 = nil;
     
@@ -69,11 +71,6 @@
 
 
 #pragma mark - Set
-- (void)setFrame:(CGRect)frame{
-    [super setFrame:frame];
-    _selfWidth = frame.size.width;
-    _selfHeight = frame.size.height;
-}
 - (void)setText:(NSString *)text{
     if ([_text isEqualToString: text]) return;
     _text = text;

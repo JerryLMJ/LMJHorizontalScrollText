@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Demo StoryboardVC-->
+        <scene sceneID="T2R-eo-xli">
+            <objects>
+                <viewController storyboardIdentifier="Demo_StoryboardVC" id="ASv-OG-aum" customClass="Demo_StoryboardVC" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A8Z-Yz-XN3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wz3-KE-7RE" customClass="LMJHorizontalScrollText">
+                                <rect key="frame" x="40" y="104" width="334" height="40"/>
+                                <color key="backgroundColor" red="0.25098039215686274" green="0.59215686274509804" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="55d-oa-00H"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dpy-Da-oYh" customClass="LMJHorizontalScrollText">
+                                <rect key="frame" x="40" y="159" width="334" height="40"/>
+                                <color key="backgroundColor" red="0.25098039220000001" green="0.59215686270000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4fQ-5X-lW7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSJ-7W-769" customClass="LMJHorizontalScrollText">
+                                <rect key="frame" x="40" y="214" width="334" height="40"/>
+                                <color key="backgroundColor" red="0.25098039220000001" green="0.59215686270000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qh1-ch-Ii8"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocS-0S-90c" customClass="LMJHorizontalScrollText">
+                                <rect key="frame" x="40" y="269" width="334" height="40"/>
+                                <color key="backgroundColor" red="0.25098039220000001" green="0.59215686270000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7F3-fh-j4T"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="amw-4d-HZh" firstAttribute="trailing" secondItem="Dpy-Da-oYh" secondAttribute="trailing" constant="40" id="0pr-ar-agd"/>
+                            <constraint firstItem="amw-4d-HZh" firstAttribute="trailing" secondItem="wz3-KE-7RE" secondAttribute="trailing" constant="40" id="3vq-MJ-agp"/>
+                            <constraint firstItem="wz3-KE-7RE" firstAttribute="leading" secondItem="amw-4d-HZh" secondAttribute="leading" constant="40" id="8Rn-Fq-DcS"/>
+                            <constraint firstItem="JSJ-7W-769" firstAttribute="leading" secondItem="amw-4d-HZh" secondAttribute="leading" constant="40" id="DdM-nU-h4m"/>
+                            <constraint firstItem="ocS-0S-90c" firstAttribute="top" secondItem="JSJ-7W-769" secondAttribute="bottom" constant="15" id="O2W-Ea-g2N"/>
+                            <constraint firstItem="wz3-KE-7RE" firstAttribute="top" secondItem="amw-4d-HZh" secondAttribute="top" constant="60" id="ReL-rL-ghs"/>
+                            <constraint firstItem="ocS-0S-90c" firstAttribute="leading" secondItem="amw-4d-HZh" secondAttribute="leading" constant="40" id="XLF-gw-GhA"/>
+                            <constraint firstItem="JSJ-7W-769" firstAttribute="top" secondItem="Dpy-Da-oYh" secondAttribute="bottom" constant="15" id="ZIZ-Do-wvX"/>
+                            <constraint firstItem="Dpy-Da-oYh" firstAttribute="leading" secondItem="amw-4d-HZh" secondAttribute="leading" constant="40" id="dA5-Jj-SSi"/>
+                            <constraint firstItem="Dpy-Da-oYh" firstAttribute="top" secondItem="wz3-KE-7RE" secondAttribute="bottom" constant="15" id="f65-we-BC6"/>
+                            <constraint firstItem="amw-4d-HZh" firstAttribute="trailing" secondItem="JSJ-7W-769" secondAttribute="trailing" constant="40" id="n4I-XV-yXw"/>
+                            <constraint firstItem="amw-4d-HZh" firstAttribute="trailing" secondItem="ocS-0S-90c" secondAttribute="trailing" constant="40" id="xFB-kG-XVH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="amw-4d-HZh"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollText1" destination="wz3-KE-7RE" id="ZIA-JS-vAV"/>
+                        <outlet property="scrollText2" destination="Dpy-Da-oYh" id="70y-lp-sMz"/>
+                        <outlet property="scrollText3" destination="JSJ-7W-769" id="hre-Gu-omm"/>
+                        <outlet property="scrollText4" destination="ocS-0S-90c" id="Xt4-gY-60N"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HVb-d3-Ldg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9" y="87"/>
+        </scene>
+    </scenes>
+</document>

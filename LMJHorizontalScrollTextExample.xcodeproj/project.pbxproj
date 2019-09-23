@@ -16,6 +16,8 @@
 		E4088A28230EAD0F0032CC9C /* LMJHorizontalScrollTextExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4088A27230EAD0F0032CC9C /* LMJHorizontalScrollTextExampleTests.m */; };
 		E4088A33230EAD0F0032CC9C /* LMJHorizontalScrollTextExampleUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4088A32230EAD0F0032CC9C /* LMJHorizontalScrollTextExampleUITests.m */; };
 		E4088A43230EADA20032CC9C /* LMJHorizontalScrollText.m in Sources */ = {isa = PBXBuildFile; fileRef = E4088A42230EADA20032CC9C /* LMJHorizontalScrollText.m */; };
+		E479C2782338D2AE0076FAAC /* Demo-StoryboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E479C2772338D2AE0076FAAC /* Demo-StoryboardVC.m */; };
+		E479C27A2338D2B90076FAAC /* Demo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E479C2792338D2B90076FAAC /* Demo.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,9 @@
 		E4088A34230EAD0F0032CC9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4088A41230EADA20032CC9C /* LMJHorizontalScrollText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMJHorizontalScrollText.h; sourceTree = "<group>"; };
 		E4088A42230EADA20032CC9C /* LMJHorizontalScrollText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMJHorizontalScrollText.m; sourceTree = "<group>"; };
+		E479C2762338D2AE0076FAAC /* Demo-StoryboardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-StoryboardVC.h"; sourceTree = "<group>"; };
+		E479C2772338D2AE0076FAAC /* Demo-StoryboardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Demo-StoryboardVC.m"; sourceTree = "<group>"; };
+		E479C2792338D2B90076FAAC /* Demo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Demo.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				E4088A46230F937C0032CC9C /* Demo-Base */,
+				E479C2752338D2690076FAAC /* Demo-Storyboard */,
 				E4088A45230EAE180032CC9C /* Supporting Files */,
 				E4088A44230EADF70032CC9C /* AppDelegate */,
 			);
@@ -167,6 +173,16 @@
 				E4088A12230EAD0E0032CC9C /* ViewController.m */,
 			);
 			path = "Demo-Base";
+			sourceTree = "<group>";
+		};
+		E479C2752338D2690076FAAC /* Demo-Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E479C2762338D2AE0076FAAC /* Demo-StoryboardVC.h */,
+				E479C2772338D2AE0076FAAC /* Demo-StoryboardVC.m */,
+				E479C2792338D2B90076FAAC /* Demo.storyboard */,
+			);
+			path = "Demo-Storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,6 +291,7 @@
 				E4088A1B230EAD0E0032CC9C /* LaunchScreen.storyboard in Resources */,
 				E4088A18230EAD0E0032CC9C /* Assets.xcassets in Resources */,
 				E4088A16230EAD0E0032CC9C /* Main.storyboard in Resources */,
+				E479C27A2338D2B90076FAAC /* Demo.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +320,7 @@
 				E4088A43230EADA20032CC9C /* LMJHorizontalScrollText.m in Sources */,
 				E4088A1E230EAD0E0032CC9C /* main.m in Sources */,
 				E4088A10230EAD0E0032CC9C /* AppDelegate.m in Sources */,
+				E479C2782338D2AE0076FAAC /* Demo-StoryboardVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

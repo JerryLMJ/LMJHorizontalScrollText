@@ -47,6 +47,9 @@
 
 
 ## Update log
+- **2019.9.23 (2.0.1) :**            
+Fixed a display error when the control rotated to landscape.                
+Added demo used by controls in Storyboard to simulate changes of controls when screen rotation.             
 - **2019.8.23 (2.0.0) :**           
 Here comes the new 2.0! 🎉 🎉 🎉                    
 To better match the control functions, the project name will be changed from LMJScrollTextView to LMJHorizontalScrollText.                     
