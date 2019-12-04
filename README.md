@@ -24,7 +24,7 @@
 - 使用 cocoapods 安装：  
   `pod 'LMJHorizontalScrollText'`
 - 手动导入:  
-  将 `LMJHorizontalScrollText` 文件拖拽到工程中
+  将 `LMJHorizontalScrollText` 文件拖拽到工程中  
   导入头文件`#import "LMJHorizontalScrollText.h"`
 
 ## 属性及方法
