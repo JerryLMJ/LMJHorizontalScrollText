@@ -8,7 +8,9 @@
 
 #import "ViewController.h"
 #import "Demo-StoryboardVC.h"
+#import "Demo-TableViewCellVC.h"
 #import "LMJHorizontalScrollText.h"
+
 
 @interface ViewController ()
 
@@ -47,6 +49,7 @@
     [self buildSpeedControl];
     
     [self buildGotoStoryboardPageBtn];
+    [self buildGotoTableViewCellPageBtn];
 }
 
 - (void)buildHorizontalScrollTexts_Wandering {
@@ -178,14 +181,22 @@
     [self.view addSubview:_speedValueLabel];
 }
 - (void)buildGotoStoryboardPageBtn{
-    // go to next page button 2
     UIButton * demoAddToXibPageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [demoAddToXibPageBtn setTitle:@"DemoAddToXibPage >>>" forState:UIControlStateNormal];
     [demoAddToXibPageBtn setBackgroundColor:[UIColor grayColor]];
-    [demoAddToXibPageBtn setFrame:CGRectMake(20, 550, 250, 30)];
+    [demoAddToXibPageBtn setFrame:CGRectMake(20, 550, 300, 30)];
     [demoAddToXibPageBtn addTarget:self action:@selector(clickDemoAddToXibPageBtn) forControlEvents:UIControlEventTouchUpInside];
     demoAddToXibPageBtn.layer.cornerRadius = 3;
     [self.view addSubview:demoAddToXibPageBtn];
+}
+- (void)buildGotoTableViewCellPageBtn{
+    UIButton * demoAddToTableViewCellPageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [demoAddToTableViewCellPageBtn setTitle:@"DemoAddToTableViewCellPage >>>" forState:UIControlStateNormal];
+    [demoAddToTableViewCellPageBtn setBackgroundColor:[UIColor grayColor]];
+    [demoAddToTableViewCellPageBtn setFrame:CGRectMake(20, 600, 300, 30)];
+    [demoAddToTableViewCellPageBtn addTarget:self action:@selector(clickDemoAddToTableViewCellPageBtn) forControlEvents:UIControlEventTouchUpInside];
+    demoAddToTableViewCellPageBtn.layer.cornerRadius = 3;
+    [self.view addSubview:demoAddToTableViewCellPageBtn];
 }
 
 #pragma mark - action
@@ -205,6 +216,10 @@
 
 - (void)clickDemoAddToXibPageBtn {
     Demo_StoryboardVC * vc = [[UIStoryboard storyboardWithName:@"Demo" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"Demo_StoryboardVC"];
+    [self presentViewController:vc animated:YES completion:nil];
+}
+- (void)clickDemoAddToTableViewCellPageBtn {
+    Demo_TableViewCellVC * vc = [[Demo_TableViewCellVC alloc] init];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

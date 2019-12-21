@@ -26,7 +26,7 @@
     UIButton * backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [backBtn setTitle:@"back" forState:UIControlStateNormal];
     [backBtn setBackgroundColor:[UIColor lightGrayColor]];
-    [backBtn setFrame:CGRectMake(20, 400, 90, 30)];
+    [backBtn setFrame:CGRectMake(20, 50, 90, 30)];
     [backBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backBtn];
     

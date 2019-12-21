@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wz3-KE-7RE" customClass="LMJHorizontalScrollText">
-                                <rect key="frame" x="40" y="104" width="334" height="40"/>
+                                <rect key="frame" x="40" y="144" width="334" height="40"/>
                                 <color key="backgroundColor" red="0.25098039215686274" green="0.59215686274509804" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="55d-oa-00H"/>
@@ -31,7 +29,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dpy-Da-oYh" customClass="LMJHorizontalScrollText">
-                                <rect key="frame" x="40" y="159" width="334" height="40"/>
+                                <rect key="frame" x="40" y="199" width="334" height="40"/>
                                 <color key="backgroundColor" red="0.25098039220000001" green="0.59215686270000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="4fQ-5X-lW7"/>
@@ -43,7 +41,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JSJ-7W-769" customClass="LMJHorizontalScrollText">
-                                <rect key="frame" x="40" y="214" width="334" height="40"/>
+                                <rect key="frame" x="40" y="254" width="334" height="40"/>
                                 <color key="backgroundColor" red="0.25098039220000001" green="0.59215686270000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="qh1-ch-Ii8"/>
@@ -55,7 +53,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ocS-0S-90c" customClass="LMJHorizontalScrollText">
-                                <rect key="frame" x="40" y="269" width="334" height="40"/>
+                                <rect key="frame" x="40" y="309" width="334" height="40"/>
                                 <color key="backgroundColor" red="0.25098039220000001" green="0.59215686270000001" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="7F3-fh-j4T"/>
@@ -74,7 +72,7 @@
                             <constraint firstItem="wz3-KE-7RE" firstAttribute="leading" secondItem="amw-4d-HZh" secondAttribute="leading" constant="40" id="8Rn-Fq-DcS"/>
                             <constraint firstItem="JSJ-7W-769" firstAttribute="leading" secondItem="amw-4d-HZh" secondAttribute="leading" constant="40" id="DdM-nU-h4m"/>
                             <constraint firstItem="ocS-0S-90c" firstAttribute="top" secondItem="JSJ-7W-769" secondAttribute="bottom" constant="15" id="O2W-Ea-g2N"/>
-                            <constraint firstItem="wz3-KE-7RE" firstAttribute="top" secondItem="amw-4d-HZh" secondAttribute="top" constant="60" id="ReL-rL-ghs"/>
+                            <constraint firstItem="wz3-KE-7RE" firstAttribute="top" secondItem="amw-4d-HZh" secondAttribute="top" constant="100" id="ReL-rL-ghs"/>
                             <constraint firstItem="ocS-0S-90c" firstAttribute="leading" secondItem="amw-4d-HZh" secondAttribute="leading" constant="40" id="XLF-gw-GhA"/>
                             <constraint firstItem="JSJ-7W-769" firstAttribute="top" secondItem="Dpy-Da-oYh" secondAttribute="bottom" constant="15" id="ZIZ-Do-wvX"/>
                             <constraint firstItem="Dpy-Da-oYh" firstAttribute="leading" secondItem="amw-4d-HZh" secondAttribute="leading" constant="40" id="dA5-Jj-SSi"/>

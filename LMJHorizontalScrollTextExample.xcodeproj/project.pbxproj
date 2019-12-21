@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		999DE9C923AE524F0037BD94 /* Demo-TableViewCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 999DE9C823AE524F0037BD94 /* Demo-TableViewCellVC.m */; };
 		E4088A10230EAD0E0032CC9C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4088A0F230EAD0E0032CC9C /* AppDelegate.m */; };
 		E4088A13230EAD0E0032CC9C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4088A12230EAD0E0032CC9C /* ViewController.m */; };
 		E4088A16230EAD0E0032CC9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4088A14230EAD0E0032CC9C /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		999DE9C723AE524F0037BD94 /* Demo-TableViewCellVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Demo-TableViewCellVC.h"; sourceTree = "<group>"; };
+		999DE9C823AE524F0037BD94 /* Demo-TableViewCellVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Demo-TableViewCellVC.m"; sourceTree = "<group>"; };
 		E4088A0B230EAD0E0032CC9C /* LMJHorizontalScrollTextExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LMJHorizontalScrollTextExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4088A0E230EAD0E0032CC9C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E4088A0F230EAD0E0032CC9C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -86,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		999DE9C623AE51FF0037BD94 /* Demo-TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				999DE9C723AE524F0037BD94 /* Demo-TableViewCellVC.h */,
+				999DE9C823AE524F0037BD94 /* Demo-TableViewCellVC.m */,
+			);
+			path = "Demo-TableViewCell";
+			sourceTree = "<group>";
+		};
 		E4088A02230EAD0E0032CC9C = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +124,7 @@
 			children = (
 				E4088A46230F937C0032CC9C /* Demo-Base */,
 				E479C2752338D2690076FAAC /* Demo-Storyboard */,
+				999DE9C623AE51FF0037BD94 /* Demo-TableViewCell */,
 				E4088A45230EAE180032CC9C /* Supporting Files */,
 				E4088A44230EADF70032CC9C /* AppDelegate */,
 			);
@@ -321,6 +334,7 @@
 				E4088A1E230EAD0E0032CC9C /* main.m in Sources */,
 				E4088A10230EAD0E0032CC9C /* AppDelegate.m in Sources */,
 				E479C2782338D2AE0076FAAC /* Demo-StoryboardVC.m in Sources */,
+				999DE9C923AE524F0037BD94 /* Demo-TableViewCellVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
