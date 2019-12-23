@@ -47,24 +47,32 @@
     return 40;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString * cellId = @"cellId";
+    static NSString * cellId = @"cell";
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellId];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] init];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellId];
         cell.backgroundColor = [UIColor lightGrayColor];
         
         /* LMJHorizontalScrollText */
         LMJHorizontalScrollText * text = [[LMJHorizontalScrollText alloc] initWithFrame:CGRectMake(20, 10, 260, 20)];
-        text.backgroundColor    = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:0.5];;
-        text.text               = [NSString stringWithFormat:@"<<<=往返滚动(back and forth)%ld=>>>", (long)indexPath.row];
+        text.backgroundColor    = [UIColor colorWithRed:64/255.f green:151/255.f blue:255/255.f alpha:0.5];
         text.textColor          = [UIColor whiteColor];
         text.textFont           = [UIFont systemFontOfSize:14];
         text.speed              = 0.03;
-        text.moveMode           = LMJTextScrollWandering;
+        text.moveDirection      = LMJTextScrollMoveLeft;
+        text.moveMode           = LMJTextScrollContinuous;
         text.layer.cornerRadius = 3;
+        text.tag                = 999;
         [cell addSubview:text];
         /* LMJHorizontalScrollText */
+        
     }
+    
+    /* LMJHorizontalScrollText */
+    LMJHorizontalScrollText * text = [cell viewWithTag:999];
+    text.text = [NSString stringWithFormat:@"<<<=往返滚动(back and forth)%ld=>>>", (long)indexPath.row];
+    /* LMJHorizontalScrollText */
+    
     return cell;
 }
 

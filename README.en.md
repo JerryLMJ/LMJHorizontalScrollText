@@ -22,6 +22,7 @@
 
 
 ## Usage
+**A choice:**
  * Use cocoapods:          
 `pod 'LMJHorizontalScrollText'`
 
@@ -47,6 +48,10 @@
 
 
 ## Update log
+- **2019.12.23 (2.0.2) :**            
+Fixed some errors using controls on UITableViewCell to enable the control to support the cell's reuse mechanism.                         
+Optimize the stop method.                       
+Added demo for controls used in UITableViewCell.                   
 - **2019.9.23 (2.0.1) :**            
 Fixed a display error when the control rotated to landscape.                
 Added demo used by controls in Storyboard to simulate changes of controls when screen rotation.             

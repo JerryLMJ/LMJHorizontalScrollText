@@ -52,6 +52,8 @@
 }
 
 - (void)setInitialSettings {
+    self.clipsToBounds = YES;
+    
     _contentLabel1 = nil;
     _contentLabel2 = nil;
     
@@ -67,6 +69,9 @@
     _moveDirection = LMJTextScrollMoveLeft;
     
     _timer = nil;
+    
+    _selfWidth = self.frame.size.width;
+    _selfHeight = self.frame.size.height;
 }
 
 
@@ -76,6 +81,12 @@
     _text = text;
     [self updateTextWidth];
     [self updateLabelsFrame];
+    if (_contentLabel1 != nil) {
+        _contentLabel1.text = _text;
+    }
+    if (_contentLabel2 != nil) {
+        _contentLabel2.text = _text;
+    }
 }
 
 - (void)setTextFont:(UIFont *)textFont{
@@ -83,6 +94,12 @@
     _textFont = textFont;
     [self updateTextWidth];
     [self updateLabelsFrame];
+    if (_contentLabel1 != nil) {
+        _contentLabel1.font = _textFont;
+    }
+    if (_contentLabel2 != nil) {
+        _contentLabel2.font = _textFont;
+    }
 }
 
 - (void)setTextColor:(UIColor *)textColor{
@@ -103,14 +120,13 @@
 - (void)setMoveMode:(LMJTextScrollMode)moveMode {
     _moveMode = moveMode;
     
-    if (self.text.length == 0) {//如果字符串长度为0，直接返回
-        return;
-    }
+//    if (self.text.length == 0) {//如果字符串长度为0，直接返回
+//        return;
+//    }
     
-    BOOL isMoving = NO;
     if (_timer) {
-        [self stop];
-        isMoving = YES;
+        [_timer invalidate];
+        _timer = nil;
     }
     
     [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -118,7 +134,7 @@
         obj = nil;
     }];
     
-    switch (_moveMode) {
+    switch (self.moveMode) {
         case LMJTextScrollContinuous:
         {
             if (self.moveDirection == LMJTextScrollMoveLeft) {
@@ -126,7 +142,6 @@
             }else{
                 [self creatLabel1WithFrame1:CGRectMake(_selfWidth -_textWidth, 0, _textWidth, _selfHeight) andLabel2WithFrame2:CGRectMake(_selfWidth -_textWidth -_textWidth, 0, _textWidth, _selfHeight)];
             }
-            
         }break;
             
         case LMJTextScrollIntermittent:
@@ -156,7 +171,7 @@
             break;
     }
     
-    if (isMoving) {
+    if (!_timer) {
         [self move];
     }
 }
@@ -167,6 +182,7 @@
     _contentLabel1.text            = self.text;
     _contentLabel1.font            = self.textFont;
     _contentLabel1.textColor       = self.textColor;
+    _contentLabel1.tag             = 1001;
     _contentLabel1.backgroundColor = [UIColor clearColor];
     [self addSubview:_contentLabel1];
     
@@ -182,6 +198,7 @@
     _contentLabel2.text            = self.text;
     _contentLabel2.font            = self.textFont;
     _contentLabel2.textColor       = self.textColor;
+    _contentLabel2.tag             = 1002;
     _contentLabel2.backgroundColor = [UIColor clearColor];
     [self addSubview:_contentLabel2];
 }
@@ -213,6 +230,47 @@
         if (_contentLabel2) {
             _contentLabel2.frame = CGRectMake(label2_x, 0, _textWidth, _selfHeight);
         }
+    }
+}
+
+- (void)resetLabelsPosition {
+    switch (self.moveMode) {
+        case LMJTextScrollContinuous:
+        {
+            if (self.moveDirection == LMJTextScrollMoveLeft) {
+                _contentLabel1.frame = CGRectMake(0, 0, _textWidth, _selfHeight);
+                _contentLabel2.frame = CGRectMake(_textWidth, 0, _textWidth, _selfHeight);
+            }else{
+                _contentLabel1.frame = CGRectMake(_selfWidth -_textWidth, 0, _textWidth, _selfHeight);
+                _contentLabel2.frame = CGRectMake(_selfWidth -_textWidth -_textWidth, 0, _textWidth, _selfHeight);
+            }
+        }break;
+            
+        case LMJTextScrollIntermittent:
+        {
+            if (self.moveDirection == LMJTextScrollMoveLeft) {
+                _contentLabel1.frame = CGRectMake(0, 0, _textWidth, _selfHeight);
+            }else{
+                _contentLabel2.frame = CGRectMake(_selfWidth -_textWidth, 0, _textWidth, _selfHeight);
+            }
+        }break;
+            
+        case LMJTextScrollFromOutside:
+        {
+            if (self.moveDirection == LMJTextScrollMoveLeft) {
+                _contentLabel1.frame = CGRectMake(_selfWidth, 0, _textWidth, _selfHeight);
+            }else{
+                _contentLabel1.frame = CGRectMake(_textWidth, 0, _textWidth, _selfHeight);
+            }
+        }break;
+            
+        case LMJTextScrollWandering:
+        {
+            _contentLabel1.frame = CGRectMake(0, 0, _textWidth, _selfHeight);
+        }break;
+            
+        default:
+            break;
     }
 }
 
@@ -291,7 +349,8 @@
 #pragma mark - API Methods
 - (void)move {
     if (_timer != nil) {
-        [self stop];
+        [_timer invalidate];
+        _timer = nil;
     }
     switch (self.moveMode) {
         case LMJTextScrollContinuous:
@@ -323,10 +382,12 @@
 - (void)stop {
     [_timer invalidate];
     _timer = nil;
+    [self resetLabelsPosition];
 }
 
 - (void)dealloc {
-    [self stop];
+    [_timer invalidate];
+    _timer = nil;
 }
 
 @end
